@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import quipux.io.back.list.application.ListAllService;
+import quipux.io.back.list.application.ListService;
 import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.List;
 @RequestMapping("/api/v1/list")
 public class ListAllGet {
 
-    private final ListAllService service;
+    private final ListService service;
 
-    public ListAllGet(final ListAllService service) {
+    public ListAllGet(final ListService service) {
         this.service = service;
     }
 

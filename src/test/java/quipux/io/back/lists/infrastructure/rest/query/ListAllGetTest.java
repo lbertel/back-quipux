@@ -2,7 +2,7 @@ package quipux.io.back.lists.infrastructure.rest.query;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import quipux.io.back.list.application.ListAllService;
+import quipux.io.back.list.application.ListService;
 import quipux.io.back.list.infrastructure.controller.query.ListAllGet;
 import quipux.io.back.list.infrastructure.persistence.DataBaseH2ListSong;
 import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
@@ -26,7 +26,7 @@ class ListAllGetTest {
         final DataBaseH2ListSong repository = mock(DataBaseH2ListSong.class);
         when(repository.findAll()).thenReturn(expectedPayload);
 
-        ListAllService service = new ListAllService(repository);
+        ListService service = new ListService(repository);
         ListAllGet controller = new ListAllGet(service);
 
         //when
@@ -47,7 +47,7 @@ class ListAllGetTest {
         final DataBaseH2ListSong repository = mock(DataBaseH2ListSong.class);
         when(repository.findAll()).thenReturn(expectedPayload);
 
-        ListAllService service = new ListAllService(repository);
+        ListService service = new ListService(repository);
         ListAllGet controller = new ListAllGet(service);
 
         //when

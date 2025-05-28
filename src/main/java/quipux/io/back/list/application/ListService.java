@@ -7,11 +7,11 @@ import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 import java.util.List;
 
 @Service
-public class ListAllService {
+public class ListService {
 
     private final DataBaseH2ListSong repository;
 
-    public ListAllService(final DataBaseH2ListSong repository) {
+    public ListService(final DataBaseH2ListSong repository) {
         this.repository = repository;
     }
 
