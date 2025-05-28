@@ -28,7 +28,7 @@ class FindByNameGetTest {
     }
 
     @Test
-    void should_return_200_status_ok_when_exist_list_name() {
+    void should_return_status_ok_when_exist_list_name() {
         //given
         final var expectedHttpStatus = HttpStatus.OK;
 
@@ -41,5 +41,33 @@ class FindByNameGetTest {
         //then
         assertEquals(expectedHttpStatus, currentResponse.getStatusCode());
         assertNotNull(currentResponse.getBody());
+    }
+
+    @Test
+    void should_return_status_bad_request_when_list_name_is_null() {
+        //given
+        final var expectedHttpStatus = HttpStatus.BAD_REQUEST;
+
+        FindByNameGet controller = new FindByNameGet();
+
+        //when
+        final var currentResponse = controller.findBy(null);
+
+        //then
+        assertEquals(expectedHttpStatus, currentResponse.getStatusCode());
+    }
+
+    @Test
+    void should_return_status_bad_request_when_list_name_is_empty() {
+        //given
+        final var expectedHttpStatus = HttpStatus.BAD_REQUEST;
+
+        FindByNameGet controller = new FindByNameGet();
+
+        //when
+        final var currentResponse = controller.findBy("  ");
+
+        //then
+        assertEquals(expectedHttpStatus, currentResponse.getStatusCode());
     }
 }
