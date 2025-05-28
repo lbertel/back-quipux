@@ -1,0 +1,15 @@
+-- data for list of the song
+INSERT INTO LIST (ID, NOMBRE, DESCRIPCION)
+VALUES ('6506f3ed-e3c2-41ce-bbfa-b9c8f244f326', 'Salsa', 'Lista de Salsa');
+INSERT INTO LIST (ID, NOMBRE, DESCRIPCION)
+VALUES ('7a0dbede-047c-4797-bc00-f5cbb088ff68', 'Rock', 'Baladas de rock');
+INSERT INTO LIST (ID, NOMBRE, DESCRIPCION)
+VALUES ('f03b3466-bfd7-4ff1-92cf-c596c9c34a3e', 'Rock', 'Baladas de rock');
+
+-- data for list of the song
+INSERT INTO SONG (ID, TITULO, GENERO, ALBUM, ANNO, ARTISTA, SONG_LIST_ID)
+VALUES ('77adf79f-6f30-4bd0-bb64-c36150e855a4', 'Lagrimas', 'Salsa', 'Lo mejor de la salsa', '1986', 'Roberto Blades', '6506f3ed-e3c2-41ce-bbfa-b9c8f244f326');
+INSERT INTO SONG (ID, TITULO, GENERO, ALBUM, ANNO, ARTISTA, SONG_LIST_ID)
+VALUES ('7839c726-93b1-42dc-ac4c-8569c0ad03a4', 'Pedro Navajas', 'Salsa', 'Lo mejor de la salsa', '1986', 'Ruben Blades', '6506f3ed-e3c2-41ce-bbfa-b9c8f244f326');
+INSERT INTO SONG (ID, TITULO, GENERO, ALBUM, ANNO, ARTISTA, SONG_LIST_ID)
+VALUES ('d13c5e87-dad9-41b9-93f1-ae6af640a2e3', 'Run to the hills', 'Rock', 'The number of the best', '1986', 'Iron Maiden', 'f03b3466-bfd7-4ff1-92cf-c596c9c34a3e');

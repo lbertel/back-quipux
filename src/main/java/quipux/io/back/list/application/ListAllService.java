@@ -1,22 +1,22 @@
 package quipux.io.back.list.application;
 
 import org.springframework.stereotype.Service;
-import quipux.io.back.list.domain.ListSong;
-import quipux.io.back.list.domain.ListSongRepository;
+import quipux.io.back.list.infrastructure.persistence.DataBaseH2ListSong;
+import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
 import java.util.List;
 
 @Service
 public class ListAllService {
 
-    private final ListSongRepository repository;
+    private final DataBaseH2ListSong repository;
 
-    public ListAllService(final ListSongRepository repository) {
+    public ListAllService(final DataBaseH2ListSong repository) {
         this.repository = repository;
     }
 
-    public List<ListSong> ask() {
-        return repository.getAllListSong();
+    public List<ListSongEntity> ask() {
+        return repository.findAll();
     }
 
 }

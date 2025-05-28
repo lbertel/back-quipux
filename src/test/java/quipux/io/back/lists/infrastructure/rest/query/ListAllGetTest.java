@@ -3,9 +3,9 @@ package quipux.io.back.lists.infrastructure.rest.query;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import quipux.io.back.list.application.ListAllService;
-import quipux.io.back.list.domain.ListSong;
-import quipux.io.back.list.domain.ListSongRepository;
-import quipux.io.back.list.infrastructure.rest.query.ListAllGet;
+import quipux.io.back.list.infrastructure.controller.query.ListAllGet;
+import quipux.io.back.list.infrastructure.persistence.DataBaseH2ListSong;
+import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +21,10 @@ class ListAllGetTest {
     void should_return_empty_lists_of_song_with_status_ok() {
         //given
         final var expectedHttpStatus = HttpStatus.OK;
-        final var expectedPayload = new ArrayList<ListSong>();
+        final var expectedPayload = new ArrayList<ListSongEntity>();
 
-        final ListSongRepository repository = mock(ListSongRepository.class);
-        when(repository.getAllListSong()).thenReturn(expectedPayload);
+        final DataBaseH2ListSong repository = mock(DataBaseH2ListSong.class);
+        when(repository.findAll()).thenReturn(expectedPayload);
 
         ListAllService service = new ListAllService(repository);
         ListAllGet controller = new ListAllGet(service);
@@ -41,11 +41,11 @@ class ListAllGetTest {
     void should_return_list_of_song_with_status_ok() {
         //given
         final var expectedHttpStatus = HttpStatus.OK;
-        final List<ListSong> expectedPayload = ListSongMother.createListOfSong();
+        final List<ListSongEntity> expectedPayload = ListSongMother.createListOfSong();
         final Integer expectCountElementInList = expectedPayload.size();
 
-        final ListSongRepository repository = mock(ListSongRepository.class);
-        when(repository.getAllListSong()).thenReturn(expectedPayload);
+        final DataBaseH2ListSong repository = mock(DataBaseH2ListSong.class);
+        when(repository.findAll()).thenReturn(expectedPayload);
 
         ListAllService service = new ListAllService(repository);
         ListAllGet controller = new ListAllGet(service);

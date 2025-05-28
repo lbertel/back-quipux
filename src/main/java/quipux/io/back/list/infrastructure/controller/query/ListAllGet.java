@@ -1,11 +1,11 @@
-package quipux.io.back.list.infrastructure.rest.query;
+package quipux.io.back.list.infrastructure.controller.query;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import quipux.io.back.list.application.ListAllService;
-import quipux.io.back.list.domain.ListSong;
+import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
 import java.util.List;
 
@@ -20,8 +20,8 @@ public class ListAllGet {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<ListSong>> listAll() {
-        List<ListSong> response = service.ask();
+    public ResponseEntity<List<ListSongEntity>> listAll() {
+        List<ListSongEntity> response = service.ask();
 
         return ResponseEntity.ok(response);
     }

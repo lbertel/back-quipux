@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "2442afc0-fb23-4fc5-b3c1-41c0333eb85c",
+		"name": "quipux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "287428"
+	},
+	"item": [
+		{
+			"name": "list",
+			"item": [
+				{
+					"name": "get all list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
