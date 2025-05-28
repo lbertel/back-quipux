@@ -1,4 +1,4 @@
-package quipux.io.back.lists_song.domain;
+package quipux.io.back.list.domain;
 
 import java.util.List;
 

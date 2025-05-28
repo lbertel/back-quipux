@@ -1,10 +1,11 @@
-package quipux.io.back.lists_song.infrastructure.rest.query;
+package quipux.io.back.lists.infrastructure.rest.query;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import quipux.io.back.lists_song.application.ListAllService;
-import quipux.io.back.lists_song.domain.ListSong;
-import quipux.io.back.lists_song.domain.ListSongRepository;
+import quipux.io.back.list.application.ListAllService;
+import quipux.io.back.list.domain.ListSong;
+import quipux.io.back.list.domain.ListSongRepository;
+import quipux.io.back.list.infrastructure.rest.query.ListAllGet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,4 +58,6 @@ class ListAllGetTest {
         assertThat(expectedPayload, equalTo(currentResult.getBody()));
         assertThat(expectCountElementInList, equalTo(currentResult.getBody().size()));
     }
+
+
 }
