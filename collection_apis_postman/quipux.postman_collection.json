@@ -39,7 +39,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0:8080/api/v1/list/Salsa",
+							"raw": "http://127.0.0:8080/api/v1/list/Blues",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -51,7 +51,143 @@
 								"api",
 								"v1",
 								"list",
-								"Salsa"
+								"Blues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "error - find by name with name blank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list/Blues",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list",
+								"Blues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Blues\",\n    \"descripcion\": \"slow Blues\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "error - new list with nombre is blank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"\",\n    \"descripcion\": \"slow Blues\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete one list",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list/Blues",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list",
+								"Blues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "error delete - listName is blank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list/%20",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list",
+								"%20"
 							]
 						}
 					},
