@@ -32,6 +32,30 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "find by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0:8080/api/v1/list/Salsa",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"list",
+								"Salsa"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

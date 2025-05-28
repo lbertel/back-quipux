@@ -2,9 +2,10 @@ package quipux.io.back.list.infrastructure.controller.query;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import quipux.io.back.list.application.ListService;
 import quipux.io.back.list.domain.ListNameVO;
 import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
@@ -14,9 +15,14 @@ import java.util.Optional;
 @RequestMapping("/api/v1/list")
 public class FindByNameGet {
 
+    private final ListService service;
+
+    public FindByNameGet(final ListService service) {
+        this.service = service;
+    }
 
     @GetMapping("/{listName}")
-    public ResponseEntity<ListSongEntity> findBy(@RequestBody String listName) {
+    public ResponseEntity<ListSongEntity> findBy(@PathVariable String listName) {
         ListNameVO vo = null;
         try {
             vo = new ListNameVO(listName);
@@ -24,13 +30,8 @@ public class FindByNameGet {
             return ResponseEntity.badRequest().build();
         }
 
-        Optional<ListSongEntity> response = null;
+        Optional<ListSongEntity> response = service.findBy(vo.name());
 
-        if (response.isPresent()) {
-            return ResponseEntity.ok(response.get());
-        }else{
-            return ResponseEntity.notFound().build();
-        }
-
+        return response.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

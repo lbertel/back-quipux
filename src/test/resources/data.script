@@ -4,7 +4,7 @@ VALUES ('6506f3ed-e3c2-41ce-bbfa-b9c8f244f326', 'Salsa', 'Lista de Salsa');
 INSERT INTO LIST (ID, NOMBRE, DESCRIPCION)
 VALUES ('7a0dbede-047c-4797-bc00-f5cbb088ff68', 'Rock', 'Baladas de rock');
 INSERT INTO LIST (ID, NOMBRE, DESCRIPCION)
-VALUES ('f03b3466-bfd7-4ff1-92cf-c596c9c34a3e', 'Rock', 'Baladas de rock');
+VALUES ('f03b3466-bfd7-4ff1-92cf-c596c9c34a3e', 'Classical', 'Baladas de rock');
 
 -- data for list of the song
 INSERT INTO SONG (ID, TITULO, GENERO, ALBUM, ANNO, ARTISTA, SONG_LIST_ID)
