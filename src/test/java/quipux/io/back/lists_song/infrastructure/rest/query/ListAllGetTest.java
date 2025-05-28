@@ -2,10 +2,10 @@ package quipux.io.back.lists_song.infrastructure.rest.query;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import quipux.io.back.lists_song.application.ListAllService;
 import quipux.io.back.lists_song.domain.ListSong;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,8 +19,12 @@ class ListAllGetTest {
     void should_return_empty_lists_of_song_with_status_ok() {
         //given
         final var expectedHttpStatus = HttpStatus.OK;
-        final var expectedPayload = Collections.EMPTY_LIST;
-        ListAllGet controller = new ListAllGet();
+        final var expectedPayload = new ArrayList<ListSong>();
+
+        ListAllService service = mock(ListAllService.class);
+        when(service.ask()).thenReturn(expectedPayload);
+
+        ListAllGet controller = new ListAllGet(service);
 
         //when
         final var currentResult = controller.listAll();
@@ -37,8 +41,9 @@ class ListAllGetTest {
         final List<ListSong> expectedPayload = ListSongMother.createListOfSong();
         final Integer expectCountElementInList = expectedPayload.size();
 
-        ListAllGet controller = mock(ListAllGet.class);
-        when(controller.listAll()).thenReturn(ResponseEntity.ok(expectedPayload));
+        ListAllService service = mock(ListAllService.class);
+        when(service.ask()).thenReturn(expectedPayload);
+        ListAllGet controller = new ListAllGet(service);
 
         //when
         final var currentResult = controller.listAll();
