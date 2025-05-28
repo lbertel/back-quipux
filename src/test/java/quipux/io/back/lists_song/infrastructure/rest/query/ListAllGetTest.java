@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import quipux.io.back.lists_song.application.ListAllService;
 import quipux.io.back.lists_song.domain.ListSong;
+import quipux.io.back.lists_song.domain.ListSongRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,10 @@ class ListAllGetTest {
         final var expectedHttpStatus = HttpStatus.OK;
         final var expectedPayload = new ArrayList<ListSong>();
 
-        ListAllService service = mock(ListAllService.class);
-        when(service.ask()).thenReturn(expectedPayload);
+        final ListSongRepository repository = mock(ListSongRepository.class);
+        when(repository.getAllListSong()).thenReturn(expectedPayload);
 
+        ListAllService service = new ListAllService(repository);
         ListAllGet controller = new ListAllGet(service);
 
         //when
@@ -41,8 +43,10 @@ class ListAllGetTest {
         final List<ListSong> expectedPayload = ListSongMother.createListOfSong();
         final Integer expectCountElementInList = expectedPayload.size();
 
-        ListAllService service = mock(ListAllService.class);
-        when(service.ask()).thenReturn(expectedPayload);
+        final ListSongRepository repository = mock(ListSongRepository.class);
+        when(repository.getAllListSong()).thenReturn(expectedPayload);
+
+        ListAllService service = new ListAllService(repository);
         ListAllGet controller = new ListAllGet(service);
 
         //when
