@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface DataBaseH2ListSong extends JpaRepository<ListSongEntity, String> {
 
     Optional<ListSongEntity> findByNombre(String name);
+    Integer deleteByNombre(String listName);
 }

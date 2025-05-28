@@ -19,7 +19,7 @@ public class ListAllGet {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<ListSongEntity>> listAll() {
         List<ListSongEntity> response = service.ask();
 
