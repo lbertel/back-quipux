@@ -1,8 +1,8 @@
 package quipux.io.back.list.domain;
 
-public record ListNameVO(String name) {
+public record NombreVO(String name) {
 
-    public ListNameVO(final String name) {
+    public NombreVO(final String name) {
         if (name == null) {
             throw new IllegalArgumentException("The list name is null");
         }

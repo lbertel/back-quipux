@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import quipux.io.back.list.application.ListService;
-import quipux.io.back.list.domain.ListNameVO;
+import quipux.io.back.list.domain.NombreVO;
 import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
 import java.util.Optional;
@@ -23,9 +23,9 @@ public class FindByNameGet {
 
     @GetMapping("/{listName}")
     public ResponseEntity<ListSongEntity> findBy(@PathVariable String listName) {
-        ListNameVO vo = null;
+        NombreVO vo = null;
         try {
-            vo = new ListNameVO(listName);
+            vo = new NombreVO(listName);
         } catch (IllegalArgumentException error) {
             return ResponseEntity.badRequest().build();
         }
