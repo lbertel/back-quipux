@@ -3,6 +3,7 @@ package quipux.io.back.list.infrastructure.controller.query;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import quipux.io.back.list.application.ListService;
 import quipux.io.back.list.infrastructure.persistence.ListSongEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -48,7 +49,8 @@ class FindByNameGetTest {
         //given
         final var expectedHttpStatus = HttpStatus.BAD_REQUEST;
 
-        FindByNameGet controller = new FindByNameGet();
+        final ListService service = mock(ListService.class);
+        FindByNameGet controller = new FindByNameGet(service);
 
         //when
         final var currentResponse = controller.findBy(null);
@@ -62,7 +64,8 @@ class FindByNameGetTest {
         //given
         final var expectedHttpStatus = HttpStatus.BAD_REQUEST;
 
-        FindByNameGet controller = new FindByNameGet();
+        final ListService service = mock(ListService.class);
+        FindByNameGet controller = new FindByNameGet(service);
 
         //when
         final var currentResponse = controller.findBy("  ");

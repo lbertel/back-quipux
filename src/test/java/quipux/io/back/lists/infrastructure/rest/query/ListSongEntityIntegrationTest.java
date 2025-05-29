@@ -27,12 +27,11 @@ public class ListSongEntityIntegrationTest {
 
     @Test
     void should_return_empty_list() throws Exception {
-        mockMvc.perform(get("/api/v1/list/")
+        mockMvc.perform(get("/api/v1/list")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$.length()").value(0));
     }
-
 
 }
