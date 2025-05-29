@@ -56,7 +56,7 @@ class ListAllGetTest {
         //then
         assertThat(expectedHttpStatus , equalTo(currentResult.getStatusCode()));
         assertThat(expectedPayload, equalTo(currentResult.getBody()));
-        assertThat(expectCountElementInList, equalTo(currentResult.getBody().size()));
+        assertThat(expectCountElementInList, equalTo(currentResult.getBody() != null ? currentResult.getBody().size() : 0));
     }
 
 

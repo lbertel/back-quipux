@@ -23,7 +23,7 @@ public class FindByNameGet {
 
     @GetMapping("/{listName}")
     public ResponseEntity<ListSongEntity> findBy(@PathVariable String listName) {
-        NombreVO vo = null;
+        NombreVO vo;
         try {
             vo = new NombreVO(listName);
         } catch (IllegalArgumentException error) {
